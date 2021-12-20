@@ -2,6 +2,8 @@
 repo for synopticProject API
 
 
+express server with dynamoDB local for DB 
+
 Local setup requirements
 
 Nodejs v12
