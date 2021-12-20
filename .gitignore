@@ -92,6 +92,7 @@ StyleCopReport.xml
 *.pidb
 *.svclog
 *.scc
+.env
 
 # Chutzpah Test files
 _Chutzpah*
@@ -168,6 +169,7 @@ DocProject/Help/html
 
 # Click-Once directory
 publish/
+DynamoDB/
 
 # Publish Web Output
 *.[Pp]ublish.xml

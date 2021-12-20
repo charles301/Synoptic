@@ -1,0 +1,14 @@
+[{
+    "id":"1234567890123456",
+    "name":"Charles Wilson",
+    "email": "charlesw124@gmail.com",
+    "mobileNumber":"07512866458",
+    "balance": 1000
+},{
+    "id":"3214567890123456",
+    "name":"Steven Allen",
+    "email": "Steve@gmail.com",
+    "mobileNumber":"07123456789",
+    "balance":0
+}
+]
