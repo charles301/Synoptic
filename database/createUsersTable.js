@@ -6,12 +6,12 @@ AWS.config.update({
   });
 
   const dynamodb = new AWS.DynamoDB();var params = {
-      TableName : "users",
+      TableName : "usersTable",
       KeySchema: [
           { AttributeName: "id", KeyType: "HASH"},
         ],
       AttributeDefinitions: [
-          { AttributeName: "id", AttributeType: "N" },],
+          { AttributeName: "id", AttributeType: "S" },],
       ProvisionedThroughput: {
           ReadCapacityUnits: 5,
           WriteCapacityUnits: 5

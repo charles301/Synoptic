@@ -12,13 +12,14 @@ const docClient = new AWS.DynamoDB.DocumentClient();
     users.forEach(function(user) {
     console.log(user)
   const params = {
-        TableName: "users",
+        TableName: "usersTable",
         Item: {
             "id": user.id,
             "name": user.name,
             "email": user.email,
             "mobileNumber": user.mobileNumber,
             "balance": user.balance,
+            "pin": user.pin
         }
     };
     docClient.put(params, function(err, data) {
