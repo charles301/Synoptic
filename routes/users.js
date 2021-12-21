@@ -21,13 +21,14 @@ var docClient = new AWS.DynamoDB.DocumentClient();
 router.get('/', function(req, res, next) {
   var params = {
     TableName: "usersTable",
-    ProjectionExpression: "#id, #name, #email, #mobileNumber, #balance",
+    ProjectionExpression: "#id, #name, #email, #mobileNumber, #balance, #pin",
     ExpressionAttributeNames: {
       "#id": "id",
       "#name": "name",
       "#email": "email",
       "#mobileNumber": "mobileNumber",
-      "#balance": "balance"
+      "#balance": "balance",
+      "#pin":"pin"
     }
   };
   console.log("Scanning Users table.");
@@ -51,52 +52,10 @@ router.get('/', function(req, res, next) {
   }
 });
 // get user by ID
-router.get('/:id', function (req, res, next) {
-  const userID = req.params.id
 
-
-  //res.redirect("/topUp")
-  var params = {
-    TableName: "usersTable",
-    KeyConditionExpression: '#id = :id',
-    ExpressionAttributeNames: {
-      "#id": "id"
-    },
-    ExpressionAttributeValues: {
-      ':id': userID
-    },
-  };
-  console.log("Scanning Users table.");
-
-  docClient.query(params, onQuery); function onQuery(err, data) {
-    if (err) {
-      console.error("Unable to query the table. Error JSON:", JSON.stringify(err, null, 2));
-    } else if(data.Count === 0){
-      res.status(404)
-      res.send("User not registered, please send post request with following attributes: id, name, email, mobileNumber")
-    } else {
-
-      res.cookie("userID", userID,{ expires: new Date(Date.now() + 1120000), httpOnly: true })
-      res.cookie("credit", data.Items[0].balance ,{ expires: new Date(Date.now() + 1120000), httpOnly: true })
-      res.send(data)
-
-      console.log(data)
-      console.log("Scan succeeded.");
-      data.Items.forEach(function (user) {
-        console.log(user.id, user.email, user.balance)
-      });
-      if (typeof data.LastEvaluatedKey != "undefined") {
-        console.log("Scanning for more...");
-        params.ExclusiveStartKey = data.LastEvaluatedKey;
-        docClient.scan(params, onScan);
-      }
-    }
-  }
-}
-);
-
+  
+  
 module.exports = router;
-
-
+  
 
 

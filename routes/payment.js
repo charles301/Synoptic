@@ -24,8 +24,8 @@ router.post('/', function(req, res, next) {
     console.log("here") 
     console.log(req.body)
     console.log(currentCredit)
-    const ammountToAdd = parseInt(req.body.ammount)
-    console.log(ammountToAdd)
+    const ammountToSubtract = parseInt(req.body.ammount)
+    console.log(ammountToSubtract)
     console.log(currentCredit)
     console.log(userID)
     var params = {
@@ -35,7 +35,7 @@ router.post('/', function(req, res, next) {
         },
         UpdateExpression: "set balance = :balance",
         ExpressionAttributeValues: {
-        ":balance": currentCredit + ammountToAdd
+        ":balance": currentCredit - ammountToSubtract
     },
   };
 
@@ -47,7 +47,7 @@ router.post('/', function(req, res, next) {
       res.send("User not registered, please send post request with following attributes: id, name, email, mobileNumber")
     } else {
       res.status(200)
-
+        res.redirect(`/users/${userID}`)
       console.log(data)
       console.log("Scan succeeded.");
     }
