@@ -16,7 +16,7 @@ AWS.config.update({
 var docClient = new AWS.DynamoDB.DocumentClient();
 
 
-// get all users
+// topup function to add balance 
 router.post('/', function(req, res, next) {
 
     const userID = req.cookies.userID
@@ -47,7 +47,7 @@ router.post('/', function(req, res, next) {
       res.send("User not registered, please send post request with following attributes: id, name, email, mobileNumber")
     } else {
       res.status(200)
-        res.redirect("/users")
+        res.redirect(`/users/${userID}`)
       console.log(data)
       console.log("Scan succeeded.");
       if (typeof data.LastEvaluatedKey != "undefined") {
