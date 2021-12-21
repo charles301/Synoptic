@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
+    "start": "nodemon ./bin/www",
     "create-db": "cd database && node createUsersTable.js && cd ..",
     "delete-db": "cd database && node deleteUsersTable.js && cd ..",
     "load-data": "cd database && node loadUsersData.js && cd ..",
@@ -11,7 +11,9 @@
   },
   "dependencies": {
     "aws-sdk": "^2.1046.0",
+    "body-parser": "^1.19.1",
     "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
     "debug": "~2.6.9",
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
