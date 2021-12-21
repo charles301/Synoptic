@@ -17,7 +17,7 @@ var docClient = new AWS.DynamoDB.DocumentClient();
 
 router.post('/', function (req, res, next) {
     console.log(req.body.id)
-    console.log("Importing Users into DynamoDB. Please wait.");
+    console.log("Adding User into DynamoDB. Please wait.");
         const params = {
             TableName: "usersTable",
             Item: {
@@ -25,17 +25,18 @@ router.post('/', function (req, res, next) {
                 "name": req.body.name,
                 "email": req.body.email,
                 "mobileNumber": req.body.mobileNumber,
-                "balance": req.body.balance,
+                "balance": 0,
                 "pin": req.body.pin
             }
         };
         docClient.put(params, function (err, data) {
             if (err) {
+                res.status(400)
                 console.error("Unable to add User", req.body.name, ". Error JSON:", JSON.stringify(err, null, 2));
             } else {
                 console.log("PutItem succeeded:", req.body.name);
                 res.status(200)
-                res.send(req.body)
+                res.send("Success adding user to database")
             }
         });
 });

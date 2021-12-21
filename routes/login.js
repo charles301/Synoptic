@@ -23,6 +23,16 @@ router.get('/:id/:pin', function (req, res, next) {
     const userPIN = req.params.pin
     console.log(userPIN)
     //res.redirect("/topUp")
+    
+    if (req.cookies.name){
+        res.send(`Goodbye ${req.cookies.name}`)
+    } else {
+
+        if(req.params.pin===undefined){
+            res.send("Please provide a PIN")
+        }
+
+
     var params = {
       TableName: "usersTable",
       KeyConditionExpression: '#id = :id',
@@ -47,8 +57,9 @@ router.get('/:id/:pin', function (req, res, next) {
         if (userPIN == data.Items[0].pin){
         res.cookie("userID", userID,{ expires: new Date(Date.now() + 1120000), httpOnly: true })
         res.cookie("credit", data.Items[0].balance ,{ expires: new Date(Date.now() + 1120000), httpOnly: true })
+        res.cookie("name", data.Items[0].name)
         res.cookie("loggedIn", true)
-        res.send(data)
+        res.send(`Welcome ${data.Items[0].name}`)
   
         console.log(data)
         console.log("Scan succeeded.");
@@ -66,7 +77,7 @@ router.get('/:id/:pin', function (req, res, next) {
         }
       }
     }
-  }
+  }}
   );
   
   

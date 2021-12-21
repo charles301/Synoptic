@@ -46,10 +46,10 @@ router.post('/', function(req, res, next) {
       res.status(404)
       res.send("User not registered, please send post request with following attributes: id, name, email, mobileNumber")
     } else {
+        res.cookie("credit", currentCredit + ammountToAdd ,{ expires: new Date(Date.now() + 1120000), httpOnly: true })
       res.status(200)
-
-      console.log(data)
-      console.log("Scan succeeded.");
+      res.send(`Balance is now : ${currentCredit + ammountToAdd}.`)
+      console.log("Update succeeded.");
     }
   }
 });
