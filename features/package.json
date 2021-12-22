@@ -1,9 +1,0 @@
-{
-	"name": "api",
-	"version": "1.0.0",
-	"description": "Integration testing for myapi v1",
-	"dependencies": {
-		"apickli": "latest",
-		"cucumber": "^6.0.5"
-	}
-}

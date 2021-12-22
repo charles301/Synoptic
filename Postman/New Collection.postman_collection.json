@@ -1,0 +1,202 @@
+{
+	"info": {
+		"_postman_id": "77585764-672e-4a3a-be50-97341f707e40",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "synoptic",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "BEARER_TOKEN",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/users/1234567890123456",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"1234567890123456"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "amp",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get /users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users"
+					],
+					"query": [
+						{
+							"key": "ammount",
+							"value": "10",
+							"disabled": true
+						}
+					]
+				},
+				"description": "GET request to localhost:3000/users \r\nTo return all users presently in database "
+			},
+			"response": []
+		},
+		{
+			"name": "GET / login/user/pin",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/login/1234567890123456/1234",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"login",
+						"1234567890123456",
+						"1234"
+					]
+				},
+				"description": "GET request to login endpoint, this request has Charles Wilson ID of 1234567890123456 and the pin as 1234\r\nThe response from the API sets 4 cookies, and returns \"hello ${name}"
+			},
+			"response": []
+		},
+		{
+			"name": "POST to /topup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"ammount\": 100}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/topup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"topup"
+					]
+				},
+				"description": "This POST request sends a JSON style body to the /topup endpoint \r\nThe body looks like \r\n{\"ammount\":100}\r\nThis adds the value of \"ammount\" to the balance of the user which is logged in (cookies)"
+			},
+			"response": []
+		},
+		{
+			"name": "POST /payment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"ammount\": 100}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/payment",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"payment"
+					]
+				},
+				"description": "This request is a POST request to the /payment endpoint \r\nthis request takes a JSON body looking like \r\n{\"ammount\":100}\r\nThe API then subtracts the value of \"ammount\" from the logged in users balance"
+			},
+			"response": []
+		},
+		{
+			"name": "POST to /register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"newTestUser12345\",\r\n    \"name\": \"Test User\",\r\n    \"email\": \"testMail@test.com\",\r\n    \"mobileNumber\": \"08000001066\",\r\n    \"pin\": 1234\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/register/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"register",
+						""
+					]
+				},
+				"description": "This request is a POST request to the /register endpoint \r\nThe body is to be a JSON object with the follow properties\r\n{\r\n    \"id\": \"String in here\",\r\n    \"name\": \"Charles Wilson\",\r\n    \"email\": \"charlesw124@gmail.com\",\r\n    \"mobileNumber\": \"07512866458\",\r\n    \"pin\": 1234\r\n}\r\nThis will add the user to the database\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "2nd GET /login/user/pin",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/login/1234567890/1234",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"login",
+						"1234567890",
+						"1234"
+					]
+				},
+				"description": "This second get request to /login/${user}/${pin} is what is essentially logging out. \r\nThe user is returned \"Goodbye ${name}\""
+			},
+			"response": []
+		}
+	]
+}

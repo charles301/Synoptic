@@ -22,8 +22,14 @@ to run express server:
 npm install
 npm run start
 
-cucumber tests:
-npx cucumber-js
+Testing
+
+Due to time constraints I have elected to forgo unit testing for the sake of ease of development on this MVP.
+Unit tests would be realtively easy to add through the use of the NPM package 'supertest'. 
+Tests for this API are done through postman app. 
+Postman collection can be found in ./Postman
+This collection can then be imported into postman and each requet can be manually sent
+
 
 At present the user can perform a GET request to localhost:3000/ 
     This will return all users in the database - this is implemented for development purposes.
@@ -57,13 +63,19 @@ The user can then purchase by performing a POST request to localhost:3000/paymen
         "ammount": Int
     }
 
+The user can then logout by performing a second GET request to localhost:3000/login/<UserID>/<UserPIN>
+    This will return "Goodbye <name>"
+    The server will then destory all 4 cookies which it previously issued.
 
-    Create documentation to describe what the API will do 
-and how it will work. This is likely to include:
-• Any assumptions made about the requirements
-• Any changes or additions made to the requirements
-• Textual and/or diagrammatic documentation of 
-design elements, including use cases and/or 
-sequence diagrams where appropriate
-• A data mode
+Going foward 
+
+ At present this app is an express server which is connected to an in-memory dynamoDB instance. 
+ This could be run almost as is using cloud compute infrastructure such as EC2.
+ But a more radical change could be to move the entire API to serverless architecture;
+    This could be achieved by utilizing a cloud provider such as Azure/AWS and running the logic in serverless functions e.g AWS lambda.
+    To complement this approach we could host the dynamoDB database in the cloud too, using AWS's dynamodb offering.
+    and use API gateway to route requests and authenticate users. 
+
+Given more time I would have liked to refactor the project by spliting the dynamoDB functions into seperate files. This would make the overall structure of the API much more managable and easier to comprehend and read. 
+It would also allow for the reuse of certain pieces of code, where currently there is significant duplication.
 

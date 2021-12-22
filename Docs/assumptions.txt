@@ -1,0 +1,15 @@
+list of assumptions regarding this project
+
+Assumptions I have made when designing this soltuion - 
+
+1. It is assumed that the PoS which talks to this API is secure and is able to take card payments / currency in-order to top-up the users balance.
+    This will be the value of the 'ammount' attribute in the body of the POST request.
+2. it is assumed that the PoS will create a final total 'bill' which is to be subtracted from the users balance.
+    This will be the value of the 'ammount' attribute in the body of the POST request.
+3. It is assumed that the API will be running within the PoS local network.
+4. It is assumed that the PoS system will know to collect the UserID from the employee card and it will know to send that via a HTPP GET request using the ID 
+    as the first parameter on the /users/ endpoint.
+5. It is also assumed that the PoS system will know to append the users pin which the will enter (via touchscreen) as the second parameter to the users/ endpoint
+    e.g /users/UserIDHere/UserPinHere
+6. is it assumed that the PoS system will know to send any balance changes to the API via POST request while using the BODY of the POST
+    request to define the ammount to be either subtracted or added to user balance. 
