@@ -52,7 +52,6 @@ The user can register by performing a POST request to localhost:3000/register
 The user can login by performing a GET request to localhost:3000/login/<UserID>/<UserPIN>
     This will return "Hello <name>"
     The server then sets four different cookies; "credit", "name", "userID", and "loggedIn".
-
     If the user provides the incorrect PIN they are sent statusCode 403 (Forbidden) and told the pin is incorrect. 
 
 The user can topUp their balance after logging in by performing a POST request to localhost:3000/topup
