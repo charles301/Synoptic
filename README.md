@@ -17,10 +17,13 @@ to run local DB
 java -Djava.library.path=../DynamoDBLocal_lib -jar DynamoDBLocal.jar -sharedDb
 
 
-to run express server
+to run express server:
 
 npm install
 npm run start
+
+cucumber tests:
+npx cucumber-js
 
 At present the user can perform a GET request to localhost:3000/ 
     This will return all users in the database - this is implemented for development purposes.

@@ -7,9 +7,11 @@
     "create-db": "cd database && node createUsersTable.js && cd ..",
     "delete-db": "cd database && node deleteUsersTable.js && cd ..",
     "load-data": "cd database && node loadUsersData.js && cd ..",
-    "read-data": "cd database && node readDataTest.js && cd .."
+    "read-data": "cd database && node readDataTest.js && cd ..",
+    "cucumber": "npx cucumber-js features/api.feature"
   },
   "dependencies": {
+    "apickli": "^3.0.1",
     "aws-sdk": "^2.1046.0",
     "body-parser": "^1.19.1",
     "cookie-parser": "~1.4.4",
@@ -20,5 +22,8 @@
     "jade": "~1.11.0",
     "morgan": "~1.9.1",
     "nodemon": "^2.0.15"
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "^8.0.0-rc.1"
   }
 }
