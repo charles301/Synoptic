@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./app/www",
+    "start": "nodemon ./app/app",
     "create-db": "cd database && node createUsersTable.js && cd ..",
     "load-data": "cd database && node loadUsersData.js && cd .."
   },
