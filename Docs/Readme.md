@@ -99,3 +99,4 @@ The user can then logout by performing a second GET request to localhost:3000/lo
 Given more time I would have liked to refactor the project by spliting the dynamoDB functions into seperate files. This would make the overall structure of the API much more managable and easier to comprehend and read. 
 It would also allow for the reuse of certain pieces of code, where currently there is significant duplication.
 
+
