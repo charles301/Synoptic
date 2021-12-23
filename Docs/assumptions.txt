@@ -11,5 +11,7 @@ Assumptions I have made when designing this soltuion -
     as the first parameter on the /users/ endpoint.
 5. It is also assumed that the PoS system will know to append the users pin which the will enter (via touchscreen) as the second parameter to the users/ endpoint
     e.g /users/UserIDHere/UserPinHere
-6. is it assumed that the PoS system will know to send any balance changes to the API via POST request while using the BODY of the POST
+6. it is assumed that the PoS system will know to send any balance changes to the API via POST request while using the BODY of the POST
     request to define the ammount to be either subtracted or added to user balance. 
+6. It is assumed that when a user signs up, that they will input their name, email, mobile number and desired pin into a form of somesort, where after this 
+    the PoS system will extract that data and transform it into the JSON object required in the POST request body.
