@@ -1,4 +1,8 @@
 # SynopticProject API
+This is a javascript based API which has various endpoints for performing different actions on the API. 
+Endpoints are detailed below.
+The purpose of this API is to allow for touch sensitive PoS systems to interact with a database containing employee data. 
+Empployees will be able to topup credit on their account, and will allow them to make payments through deductions to their credit. 
 
 
 ## Express server with dynamoDB local for DB 
@@ -18,6 +22,8 @@
 >npm run create-db
 >npm run load-data
 ```
+
+The hash key for the database is the value stored on the employee card known as 'userID'
 
 ## To run express server
 ```bash
