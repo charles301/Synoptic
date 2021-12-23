@@ -1,29 +1,32 @@
 # SynopticProject API
 
 
-## Express server with dynamoDB local for DB 
+# Express server with dynamoDB local for DB 
 
-### Local setup requirements
-
+# Local setup requirements
+```bash
 >Nodejs v12
 >java jdk 17+
 >npm
+```
 
-
-### To run local DB and seed with example user data  
+## To run local DB and seed with example user data  
+```bash
 >cd DynamoDB
 >java -Djava.library.path=../DynamoDBLocal_lib -jar DynamoDBLocal.jar -sharedDb
 >cd ..
 >npm run create-db
 >npm run load-data
+```
 
-### To run express server
+## To run express server
+```bash
 >npm install
 >npm run start
+```
+# Testing
 
-## Testing
-
-### Postman
+## Postman
 
 Due to time constraints I have elected to forgo unit testing for the sake of ease of development on this MVP.
 Unit tests would be realtively easy to add through the use of the NPM package 'supertest'. 
@@ -34,8 +37,9 @@ This collection can then be imported into postman and each requet can be manuall
 
 At present the user can perform a GET request to localhost:3000/ 
     This will return all users in the database - this is implemented for development purposes.
+```bash
 > GET /
-
+```
 The user can register by performing a POST request to localhost:3000/register
     The user will have to provide the following
  {
@@ -46,35 +50,40 @@ The user can register by performing a POST request to localhost:3000/register
     "pin": int
 }
     This will create an entry with the given attributes in the database.
+```bash
 > POST /register 
-
+```
 The user can login by performing a GET request to localhost:3000/login/<UserID>/<UserPIN>
     This will return "Hello <name>"
     The server then sets four different cookies; "credit", "name", "userID", and "loggedIn".
     If the user provides the incorrect PIN they are sent statusCode 403 (Forbidden) and told the pin is incorrect. 
+```bash
 > GET /login/<userID>/<UserPIN>
-
+```
 The user can topUp their balance after logging in by performing a POST request to localhost:3000/topup
     The user will have to provide the following in the POST request body 
     {
         "ammount": Int
     }
+```bash
 > POST /topup
-
+```
 The user can then purchase by performing a POST request to localhost:3000/payment
     The user will have to provide the follow in the POST request body
     {
         "ammount": Int
     }
+```bash
 > POST /payment
-
+```
 The user can then logout by performing a second GET request to localhost:3000/login/<UserID>/<UserPIN>
     This will return "Goodbye <name>"
     The server will then destory all 4 cookies which it previously issued.
+```bash
 > GET /login/<UserID>/<UserPIN>
+```
 
-
-## Going foward 
+# Going foward 
 
  At present this app is an express server which is connected to an in-memory dynamoDB instance. 
  This could be run almost as is using cloud compute infrastructure such as EC2.
