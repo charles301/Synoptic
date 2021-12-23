@@ -1,9 +1,9 @@
 # SynopticProject API
 
 
-# Express server with dynamoDB local for DB 
+## Express server with dynamoDB local for DB 
 
-# Local setup requirements
+## Local setup requirements
 ```bash
 >Nodejs v12
 >java jdk 17+
