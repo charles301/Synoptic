@@ -80,6 +80,10 @@ Going foward
     This could be achieved by utilizing a cloud provider such as Azure/AWS and running the logic in serverless functions e.g AWS lambda.
     To complement this approach we could host the dynamoDB database in the cloud too, using AWS's dynamodb offering.
     and use API gateway to route requests and authenticate users. 
+    This would allow for far greater scaling of the entire system and possibly lower costs in terms of hosting and maintaining servers.
+Another posible way to improve this code would be to use a more stronly typed language or Typescript. This would give far more confidence in what is being developed. 
+
+
 
 Given more time I would have liked to refactor the project by spliting the dynamoDB functions into seperate files. This would make the overall structure of the API much more managable and easier to comprehend and read. 
 It would also allow for the reuse of certain pieces of code, where currently there is significant duplication.
