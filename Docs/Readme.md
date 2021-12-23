@@ -94,8 +94,9 @@ The user can then logout by performing a second GET request to localhost:3000/lo
  This would allow for far greater scaling of the entire system and possibly lower costs in terms of hosting and maintaining servers.
  Another posible way to improve this code would be to use a more stronly typed language or Typescript. This would give far more confidence in what is being developed. 
 
-
+![Proposed cloud architecture](./serverlessArchitecture)
 
 Given more time I would have liked to refactor the project by spliting the dynamoDB functions into seperate files. This would make the overall structure of the API much more managable and easier to comprehend and read. 
 It would also allow for the reuse of certain pieces of code, where currently there is significant duplication.
 
+I would have liked to added some unit testing to this project, if given more time I would have certainly added unit tests around the refactored dynamoDB functions, just so that we have certainty and confidence surrounding how the application works and that it works in the way we expect it to.  

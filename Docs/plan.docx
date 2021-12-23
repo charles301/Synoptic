@@ -1,10 +1,13 @@
 I plan on using express js as a server to host the API.
-I will use a local DynamoDB instance for local development
+I will use a local DynamoDB instance as a local development database
 I will write this in javascript for the sake of time and ease of development
 I will require multiple endpoints for signing in, registering, making a payment and topping up credit. I will also have an endpoint which returns
 the entire contents of the database. 
 
-I will test manually using postman for the sake of ease of development, rather than spending a large chunk of time wiritng unit tests for tried 
+I will test manually using postman for the sake of ease of development, rather than spending a large chunk of time wriitng unit tests for tried 
 and tested javascript packages.
 
 I havent dealt much with sessions in relation to APIs, I plan on using cookies for the API to know whether the user is authenticated.
+I will have 5 endpoints in total, one to return all users registered (/users), one for logging in (/login), one for signing up (/register), one
+for topping up credit (/topup), and one for making payments (/payment).
+I will create a detailed readme.md which will outline how to get the project running locally.
