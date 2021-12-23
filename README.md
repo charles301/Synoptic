@@ -92,6 +92,7 @@ The user can then logout by performing a second GET request to localhost:3000/lo
 # Going foward 
 
  At present this app is an express server which is connected to an in-memory dynamoDB instance. 
+ 
  This could be run almost as is using cloud compute infrastructure such as EC2.
  But a more radical change could be to move the entire API to serverless architecture;
  This could be achieved by utilizing a cloud provider such as Azure/AWS and running the logic in serverless functions e.g AWS lambda.
@@ -104,6 +105,8 @@ The user can then logout by performing a second GET request to localhost:3000/lo
 
 Given more time I would have liked to refactor the project by spliting the dynamoDB functions into seperate files. This would make the overall structure of the API much more managable and easier to comprehend and read. 
 It would also allow for the reuse of certain pieces of code, where currently there is significant duplication.
+
 Another posible way to improve this code would be to use a more stronly typed language or Typescript. This would give far more confidence in what is being developed. 
 I would have liked to added some unit testing to this project, if given more time I would have certainly added unit tests around the refactored dynamoDB functions, just so that we have certainty and confidence surrounding how the application works and that it works in the way we expect it to.  
+
 If in the event that the 'userID' attribute stored on the employee card is not unique to each individual, then in the future a composite key may wish to be created, I propose for this that the composite key looks something like ${userID+userName}. As this would help to avoid conflicts in the database. 
