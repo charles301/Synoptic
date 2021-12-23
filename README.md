@@ -98,11 +98,12 @@ The user can then logout by performing a second GET request to localhost:3000/lo
  To complement this approach we could host the dynamoDB database in the cloud too, using AWS's dynamodb offering.
  and use API gateway to route requests and authenticate users. 
  This would allow for far greater scaling of the entire system and possibly lower costs in terms of hosting and maintaining servers.
- Another posible way to improve this code would be to use a more stronly typed language or Typescript. This would give far more confidence in what is being developed. 
 
-![Proposed cloud architecture](./Docs/serverlessArchitecture.png)
+
+![Proposed cloud architecture](./serverlessArchitecture.png)
 
 Given more time I would have liked to refactor the project by spliting the dynamoDB functions into seperate files. This would make the overall structure of the API much more managable and easier to comprehend and read. 
 It would also allow for the reuse of certain pieces of code, where currently there is significant duplication.
-
+Another posible way to improve this code would be to use a more stronly typed language or Typescript. This would give far more confidence in what is being developed. 
 I would have liked to added some unit testing to this project, if given more time I would have certainly added unit tests around the refactored dynamoDB functions, just so that we have certainty and confidence surrounding how the application works and that it works in the way we expect it to.  
+If in the event that the 'userID' attribute stored on the employee card is not unique to each individual, then in the future a composite key may wish to be created, I propose for this that the composite key looks something like ${userID+userName}. As this would help to avoid conflicts in the database. 
